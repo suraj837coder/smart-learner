@@ -1,0 +1,4 @@
+# Copy this to .env and add your OpenAI API key
+OPENAI_API_KEY=sk-...
+# To run without an API key for testing, set USE_MOCK=true
+# USE_MOCK=true

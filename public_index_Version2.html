@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Smart Learner - MVP</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: Arial, sans-serif; max-width:900px; margin:20px auto; padding:0 10px; }
+    label{display:block;margin-top:10px}
+    textarea{width:100%;height:90px}
+    .controls{display:flex;gap:8px;align-items:center}
+    #graph { border:1px solid #ddd; padding:10px; margin-top:12px; min-height:120px; }
+    .output { margin-top:12px; background:#f9f9f9; padding:10px; border-radius:6px; }
+    button{padding:8px 12px}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <h1>Smart Learner (MVP)</h1>
+  <p>Enter a topic, choose level and formats, then click Generate.</p>
+
+  <label>Topic
+    <input id="topic" type="text" placeholder="e.g., Photosynthesis" style="width:100%" />
+  </label>
+
+  <label>Level
+    <select id="level">
+      <option value="easy">Easy</option>
+      <option value="intermediate">Intermediate</option>
+      <option value="advanced">Advanced</option>
+    </select>
+  </label>
+
+  <label>Formats (choose one or more)
+    <div class="controls">
+      <label><input type="checkbox" name="format" value="diagram" checked /> Diagram</label>
+      <label><input type="checkbox" name="format" value="tree" /> Tree</label>
+      <label><input type="checkbox" name="format" value="flowchart" /> Flowchart</label>
+      <label><input type="checkbox" name="format" value="details" /> Detailed text</label>
+    </div>
+  </label>
+
+  <div style="margin-top:12px">
+    <button id="generate">Generate</button>
+    <span id="status" style="margin-left:10px;color:gray"></span>
+  </div>
+
+  <div id="result" class="output" style="display:none">
+    <h3>Explanation</h3>
+    <div id="explanation"></div>
+
+    <h3>Prerequisites</h3>
+    <ul id="prereq"></ul>
+
+    <h3>Learning Steps</h3>
+    <ol id="steps"></ol>
+
+    <h3>Diagram</h3>
+    <div id="graph"></div>
+
+    <h3>Raw JSON (for debugging)</h3>
+    <pre id="raw" style="white-space:pre-wrap;background:#fff;padding:8px;border:1px solid #eee"></pre>
+  </div>
+
+  <script src="/main.js"></script>
+</body>
+</html>
